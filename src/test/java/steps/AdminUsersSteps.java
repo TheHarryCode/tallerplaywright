@@ -11,15 +11,18 @@ import pages.AdminUsersPage;
 public class AdminUsersSteps {
     
     AdminUsersPage page = new AdminUsersPage();
+	String name;
+	String lastName;
 
-    @Given("^ingreso a la pagina de admin usuarios")
+	@Given("^ingreso a la pagina de Contact List App")
 	public void navigateTo(){
 		page.navigate();
 	}
 
-    @And("^doy click en el boton Sign up")
-	public void darClickBotonSignUp(){
-		page.darClickBotonSignUp();
+    @When("^doy click en el boton login")
+	public void darClickBotonLogin(){
+		page.darClickBotonLogin();
+		page.waitMiliSeconds(500);
 	}
 
     @And("^puedo ver la pantalla de creacion de usuarios")
@@ -40,7 +43,7 @@ public class AdminUsersSteps {
 
     @And("^ingreso el email del usuario")
 	public void ingresarEmail(){
-		page.ingresarEmail("Harrydd24@gmail.com");
+		page.ingresarEmail("Harry1@gmail.com");
 	}
 
     @And("^ingreso el password del usuario")
@@ -48,9 +51,10 @@ public class AdminUsersSteps {
 		page.ingresarPassword("HarryMesa");
 	}
 
-    @When("^doy click en el boton Submit")
+    @When("^doy click en el boton add user")
 	public void darClickBotonSubmitSignUp(){
 		page.darClickBotonSubmitSignUp();
+		page.waitMiliSeconds(5000);
 	}
 
     @Then("^espero ver la lista de contactos")
@@ -72,12 +76,14 @@ public class AdminUsersSteps {
 
 	@And("^ingreso el primer nombre")
 	public void agregarContactoNombre(){
-		page.ingresarContactoNombre("Laura");
+		this.name = "Carlos3";
+		page.ingresarContactoNombre(name);
 	}
 
 	@And("^ingreso el segundo nombre")
 	public void ingresarContactoApellido(){
-		page.ingresarContactoApellido("Marin");
+		this.lastName="Perez";
+		page.ingresarContactoApellido(lastName);
 	}
 
 	@And("^ingreso la fecha de nacimiento")
@@ -87,7 +93,7 @@ public class AdminUsersSteps {
 
 	@And("^ingreso el email del contacto")
 	public void ingresarContactoEmail(){
-		page.ingresarContactoEmail("correo1@gmail.com");
+		page.ingresarContactoEmail("correo2@gmail.com");
 	}
 
 	@And("^ingreso el numero celular")
@@ -128,11 +134,18 @@ public class AdminUsersSteps {
 	@When("^doy click en el boton Submit de Add Card")
 	public void darClickBotonSubmitAddContact(){
 		page.darClickBotonSubmitAddContact();
+		page.waitMiliSeconds(5000);
 	}
 
 	@Then("^verifico que el registro se agrega a la tabla")
 	public void validarPantallaSubmitAddContact(){
-		boolean existePage = page.validarPantallaAddContact();
+		boolean existePage = page.validarExisteRegistro(name+" "+lastName);
 		assertTrue(existePage);
+		page.waitMiliSeconds(5000);
+	}
+
+	@And("^doy click en el boton Sign up")
+	public void darClickBotonSignUp(){
+		page.darClickBotonSignUp();
 	}
 }

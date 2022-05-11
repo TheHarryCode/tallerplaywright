@@ -60,6 +60,7 @@ public class ReservasVuelosSteps {
 	public void seleccionarFechaVuelo(){
 		page.seleccionarDayOrigen();
 		page.seleccionarMonthOrigen();
+		page.waitMiliSeconds(5000);
 	}
 
 	@And("^doy click en continuar")
@@ -98,22 +99,27 @@ public class ReservasVuelosSteps {
 	@Given("^selecciono el tipo de tarjeta visa")
 	public void seleccionarTipoTarjeta(){
 		page.seleccionarTipoTarjeta("VISA");
+		page.waitMiliSeconds(2000);
 	}
 
 	@And("^ingreso el numero de la tarjeta")
 	public void ingresarNumeroTarjeta(){
 		page.ingresarNumeroTarjeta();
+		page.waitMiliSeconds(2000);
 	}
 
 	@And("^selecciono la fecha de expiracion de la tarjeta")
 	public void seleccionarFechaExpiracionTarjeta(){
 		page.seleccionarMesCard();
+		page.waitMiliSeconds(2000);
 		page.seleccionarYearCard();
+		page.waitMiliSeconds(2000);
 	}
 
 	@When("^doy click en el boton pay now")
 	public void darClickBotonPay(){
 		page.darClickBotonPay();
+		page.waitMiliSeconds(6000);
 	}
 
 	@Then("^valido el mensaje de pago exitoso")

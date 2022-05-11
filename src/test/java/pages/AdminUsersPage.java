@@ -7,7 +7,7 @@ public class AdminUsersPage extends BasePage {
    String locatorLastName = "//input[@id='lastName']";
    String locatorEmail = "//input[@id='email']";
    String locatorPassword = "//input[@id='password']";
-   String locatorBotonSubmitSignUp = "//button[@id='signup']";
+   String locatorBotonSubmitSignUp = "#submit";
    String locatorTituloAddUser = "//h1[contains(text(),'Add User')]";
    String locatorTituloContactList = "//header//h1";
    String locatorBotonAddNewContact = "//button[@id='add-contact']";
@@ -16,7 +16,7 @@ public class AdminUsersPage extends BasePage {
    String locatorContactLastName = "//input[@id='lastName']";
    String locatorContactDateBirth = "//input[@id='birthdate']";
    String locatorContactEmail = "//input[@id='email']";
-   String locatorContactPhone = "//input[@id='email']";
+   String locatorContactPhone = "//input[@id='phone']";
    String locatorContactAddres1 = "//input[@id='street1']";
    String locatorContactAddres2 = "//input[@id='street2']";
    String locatorContactCity = "//input[@id='street2']";
@@ -24,6 +24,19 @@ public class AdminUsersPage extends BasePage {
    String locatorContactPostalCode = "//input[@id='postalCode']";
    String locatorContactCountry = "//input[@id='country']";
    String locatorBotonSubmitAddContact = "//button[@id='submit']";
+   String locatorBotonLogin = "//button[@id='submit']";
+
+   public void navigate() {
+      navigateTo("https://thinking-tester-contact-list.herokuapp.com");
+   }
+
+   public boolean validarExisteRegistro(String registro){
+      return existeElemento("//td[contains(text(),'"+registro+"')]");
+   }
+
+   public void darClickBotonLogin() {
+      click(locatorBotonLogin);
+   }
 
    public void darClickBotonSubmitAddContact(){
       click(locatorBotonSubmitAddContact);
@@ -85,10 +98,6 @@ public class AdminUsersPage extends BasePage {
       super(playwright);
    }
 
-   public void navigate() {
-      navigateTo("https://thinking-tester-contact-list.herokuapp.com");
-   }
-
    public void darClickBotonSignUp() {
       click(locatorBotonSignUp);
    }
@@ -120,4 +129,6 @@ public class AdminUsersPage extends BasePage {
    public boolean validaPantallaAddUser() {
       return existeElemento(locatorTituloAddUser);
    }
+
+
 }

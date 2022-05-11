@@ -22,7 +22,7 @@ public class ReservasVuelosPage extends BasePage{
     String locatorTypeCardMaster = "//tbody/tr[1]/td[2]/input[2]";
     String locatorCardNumber = "//tbody/tr[3]/td[2]/input[1]";
     String locatorMonthCard = "//tbody/tr[4]/td[2]/select[1]";
-    String locatorYearCard = "//tbody/tr[4]/td[2]/select[1]";
+    String locatorYearCard = "//tbody/tr[4]/td[2]/select[2]";
     String locatorBotonPay = "//body[1]/div[1]/form[1]/p[1]/input[1]";
     String locatorMensajeConfirmacion = "//h2[contains(text(),'Confirmation')]";
 
@@ -115,11 +115,11 @@ public class ReservasVuelosPage extends BasePage{
     }
 
     public void seleccionarMesCard() {
-        seleccionar(locatorMonthCard, "01");
+        seleccionar(locatorMonthCard, "10");
     }
 
     public void seleccionarYearCard() {
-        seleccionar(locatorYearCard, "2021");
+        seleccionar(locatorYearCard, "2011");
     }
 
     public void darClickBotonPay() {

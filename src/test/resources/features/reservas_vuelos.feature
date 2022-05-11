@@ -1,3 +1,4 @@
+@ReservasVuelos
 Feature: Testear pagina reserva de vuelos
 
     Scenario: Como usuario deseo loguearme en la aplicacion

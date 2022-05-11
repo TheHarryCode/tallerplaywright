@@ -30,6 +30,14 @@ public class BasePage {
         page.click(selector);
     }
 
+    public void waitMiliSeconds(int miliSeconds){
+        try {
+			Thread.sleep(miliSeconds);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    }
+
     public void write(String selector, String value){
         page.fill(selector, value);
     }

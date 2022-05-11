@@ -11,6 +11,7 @@ import pages.BasePage;
 @CucumberOptions(
     features = "src/test/resources/features",
     glue = "steps"
+    //,tags = "@ReservasVuelos"
 )
 public class Runner {
     

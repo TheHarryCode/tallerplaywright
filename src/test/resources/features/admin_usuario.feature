@@ -1,14 +1,22 @@
+@AdminUser
 Feature: Testear pagina de administracion de usuarios
 
-    Scenario: Como usuario deseo registrarme en la pagina
-    Given ingreso a la pagina de admin usuarios
-    And doy click en el boton Sign up
-    And puedo ver la pantalla de creacion de usuarios
-    And ingreso el nombre del usuario
-    And ingreso el apellido del usuario
+    #Scenario: Como usuario deseo registrarme en la pagina
+    #Given ingreso a la pagina de admin usuarios
+    #And doy click en el boton Sign up
+    #And puedo ver la pantalla de creacion de usuarios
+    #And ingreso el nombre del usuario
+    #And ingreso el apellido del usuario
+    #And ingreso el email del usuario
+    #And ingreso el password del usuario
+    #When doy click en el boton add user
+    #Then espero ver la lista de contactos
+
+    Scenario: Como usuario deseo loguearme en la pagina
+    Given ingreso a la pagina de Contact List App
     And ingreso el email del usuario
     And ingreso el password del usuario
-    When doy click en el boton Submit
+    When doy click en el boton login
     Then espero ver la lista de contactos
 
     Scenario: Como usuario deseo agregar contactos a la lista
